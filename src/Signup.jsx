@@ -6,6 +6,7 @@ import './css/signup.css';
 const Signup = () => {
    const [member, setMember] = useState({
     username: '',
+    nickname: '',
     password: '',
     email: ''
    });
@@ -13,7 +14,7 @@ const Signup = () => {
 
   const onChangeHandler = (e) => {
     setMember({
-      ...setMember,
+      ...member,
       [e.target.name]: e.target.value
     })
   }
@@ -22,12 +23,13 @@ const Signup = () => {
     <div className="signup-container">
       <h2>회원가입</h2>
       <hr />
-      아이디 : <input type="text" name="username" onChange={onChangeHandler}/> <br />
-      닉네임 : <input type="text" name="nickname" onChange={onChangeHandler}/> <br />
-      비밀번호 : <input type="password" name="password" onChange={onChangeHandler}/> <br />
-      이메일 : <input type="text" name="email" onChange={onChangeHandler}/> <br />
+      <label>아이디<input type="text" name="username" onChange={onChangeHandler}/></label> <br />
+      <label>닉네임<input type="text" name="nickname" onChange={onChangeHandler}/></label> <br />
+      <label>비밀번호<input type="password" name="password" onChange={onChangeHandler}/></label> <br />
+      <label>이메일<input type="text" name="email" onChange={onChangeHandler}/></label> <br />
       <button onClick={() => {
-        axiosInstance.post('/signup',member)
+        console.log(member)
+        axiosInstance.post('/signup', member)
           .then(response => {
             console.log(response)
             alert(response.data);

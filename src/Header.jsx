@@ -3,12 +3,6 @@ import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Header({ auth, setAuth, userInfo, setUserInfo }) {
-  // 로그인 여부 (실제로는 토큰이나 redux, context로 관리)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // 로그인 / 로그아웃 토글 (예시)
-  const handleLogin = () => setIsLoggedIn(true);
-  const handleLogout = () => setIsLoggedIn(false);
 
   const logout = () => {
     sessionStorage.removeItem('jwt');
@@ -38,7 +32,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
           </Nav>
 
           <Nav>
-            {!isLoggedIn ? (
+            {!auth ? (
               <>
                 <Nav.Link as={Link} to="/login">로그인</Nav.Link>
                 <Nav.Link as={Link} to="/signup">회원가입</Nav.Link>
@@ -46,7 +40,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
             ) : (
               <>
                 <Nav.Link as={Link} to="/mypage">마이페이지</Nav.Link>
-                <Button variant="outline-light" size="sm" onClick={handleLogout}>
+                <Button variant="outline-light" size="sm" onClick={logout}>
                   로그아웃
                 </Button>
               </>

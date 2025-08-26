@@ -43,3 +43,8 @@
 .login-container button:hover {
   background: #74b9ff;
 }
+
+
+label {
+  text-align: center;
+}
