@@ -1,28 +1,49 @@
-import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
-import Slider from './Slider';
-// import { Route, Router, Routes } from 'react-router-dom';
-// import QuizPage from './QuizPage';
+import { useEffect, useState } from 'react';
+import axiosInstance from '../axiosInstance';
+import { Route, Routes } from 'react-router-dom';
+import Signup from './Signup';
+import Login from './Login';
+import QuizPage from './QuizPage';
+import MainPage from './MainPage';
+import Ranking from './Ranking';
+import Honor from './Honor';
+import Market from './Market';
 
 function App() {
+  const [auth, setAuth] = useState(false);
+  const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    if(sessionStorage.getItem('jwt'))
+      setAuth(true)
+  }, [])
+
+  useEffect(() => {
+    if(auth) {
+      axiosInstance.get('/userinfo')
+        .then(response => {
+          setUserInfo(response.data);
+        }).catch(error => {
+          console.log(error)
+        })
+    }
+  }, [auth])
 
   return (
     <>
-      {/* <Router> */}
-        <Header />
-      
-        <div>
-         <Slider />
-        </div>
+        <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo}/>
 
-        {/* <Routes>
-         <Route path="/" />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+         <Route path="/signup" element={<Signup />} />
+         <Route path="/login" element={<Login setAuth={setAuth} />} />
          <Route path="/quiz" element={<QuizPage />} />
-         <Route path="/quiz/:game" element={<QuizPage />} />
-        </Routes> */}
-
-      {/* </Router> */}
+         <Route path="/market" element={<Market />} />
+         <Route path="/ranking" element={<Ranking />} />
+         <Route path="/honor" element={<Honor />} />
+        </Routes>
     </>
   )
 }
