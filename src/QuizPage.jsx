@@ -1,25 +1,28 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axiosInstance from "../axiosInstance";
 
-// function QuizPage() {
-//   const { game } = useParams(); // lol, maple, star ...
-//   const [questions, setQuestions] = useState([]);
+function QuizPage() {
+  const { game } = useParams(); // lol, maple, star ...
+  const [questions, setQuestions] = useState([]);
 
-//   useEffect(() => {
-//     axios.get(`/api/quiz/${game}`)
-//       .then(response => 
-//         setQuestions(response.data));
-//   }, [game]);
+  useEffect(() => {
+    axiosInstance.get(`/quiz/${game}`)
+      .then(response => 
+        setQuestions(response.data))
+      .catch(error => {
+        console.log(error)
+      })
+  }, [game]);
 
-//   return (
-//     <div>
-//       <h1>{game} 퀴즈</h1>
-//       {questions.map((q, i) => (
-//         <div key={i}>{q.question}</div>
-//       ))}
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <h1>{game} 퀴즈</h1>
+      {questions.map((q, i) => (
+        <div key={i}>{q.question}</div>
+      ))}
+    </div>
+  );
+}
 
-// export default QuizPage;
+export default QuizPage;
