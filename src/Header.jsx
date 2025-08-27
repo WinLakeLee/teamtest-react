@@ -10,7 +10,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
     setUserInfo('');
   }
 
-   return (
+  return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand as={Link} to="/">종겜퀴즈</Navbar.Brand>

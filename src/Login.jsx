@@ -5,8 +5,8 @@ import './css/Login.css';
 
 const Login = ({ setAuth }) => {
   const [member, setMember] = useState({
-    "username" : '',
-    "password" : ''
+    "username": '',
+    "password": ''
   });
 
   const navigate = useNavigate();
@@ -23,20 +23,21 @@ const Login = ({ setAuth }) => {
       <h2>로그인</h2>
       <hr />
       <label>아이디 <input type="text" name="username" onChange={onChangeHandler} /></label> <br />
-      <label>비밀번호 <input type="password" name="username" onChange={onChangeHandler} /></label> <br />
+      <label>비밀번호 <input type="password" name="password" onChange={onChangeHandler} /></label> <br />
+
       <button onClick={() => {
         axiosInstance.post('/login', member)
-        .then(response => {
-          const jwt = response.headers.authorization;
-        
-          if(jwt != null) {
-            sessionStorage.setItem('jwt', jwt);
-            setAuth(true)
-            navigate('/')
-          }
-        }).catch(error => {
-          console.log(error);
-        })
+          .then(response => {
+            const jwt = response.headers.authorization;
+
+            if (jwt != null) {
+              sessionStorage.setItem('jwt', jwt);
+              setAuth(true)
+              navigate('/')
+            }
+          }).catch(error => {
+            console.log(error);
+          })
       }}>로그인</button>
     </div>
   )
