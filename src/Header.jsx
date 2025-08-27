@@ -25,7 +25,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               <NavDropdown.Item as={Link} to="/quiz/lol">롤</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/maple">메이플</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/star">스타크래프트</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/quiz/ark">로스트아크</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/quiz/bg">배틀그라운드</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/quiz/etc">기타</NavDropdown.Item>
             </NavDropdown>
@@ -39,6 +39,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               </>
             ) : (
               <>
+                <div>내 포인트:{auth.point}</div>
                 <Nav.Link as={Link} to="/mypage">마이페이지</Nav.Link>
                 <Button variant="outline-light" size="sm" onClick={logout}>
                   로그아웃
