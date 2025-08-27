@@ -22,8 +22,8 @@ const Login = ({ setAuth }) => {
     <div className="login-container">
       <h2>로그인</h2>
       <hr />
-      <label>아이디 <input type="text" name="username" onChange={onChangeHandler} /></label> <br />
-      <label>비밀번호 <input type="password" name="password" onChange={onChangeHandler} /></label> <br />
+      <label>아이디 <input type="text" name="username" placeholder="아이디를 입력하세요" onChange={onChangeHandler} /></label> <br />
+      <label>비밀번호 <input type="password" name="password" placeholder="비밀번호를 입력하세요" onChange={onChangeHandler} /></label> <br />
 
       <button onClick={() => {
         axiosInstance.post('/login', member)
