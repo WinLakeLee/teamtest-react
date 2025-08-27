@@ -1,0 +1,62 @@
+.honor-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.honor-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.honor-subtitle {
+  text-align: center;
+  color: #636e72;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.honor-list {
+  list-style: none;
+  padding: 0;
+}
+
+.honor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fff;
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.honor-card:hover {
+  transform: translateY(-3px);
+}
+
+.honor-rank {
+  font-weight: bold;
+  color: #e17055;
+}
+
+.honor-username {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2d3436;
+}
+
+.honor-score {
+  color: #0984e3;
+  font-weight: bold;
+}
+
+.honor-period {
+  font-size: 12px;
+  color: #636e72;
+}
