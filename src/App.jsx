@@ -10,6 +10,7 @@ import MainPage from './MainPage';
 import Ranking from './Ranking';
 import Honor from './Honor';
 import Market from './Market';
+import MyPage from './MyPage';
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/honor" element={<Honor />} />
       </Routes>
+
     </>
   )
 }

@@ -1,0 +1,36 @@
+.ranking-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.ranking-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d3436;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.ranking-table tr:hover {
+  background: #f1f2f6;
+}
+
+.ranking-table th {
+  background: #0984e3;
+  color: white;
+}
