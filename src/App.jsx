@@ -44,6 +44,7 @@ function App() {
         <Route path="/market" element={<Market />} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/honor" element={<Honor />} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo}/>} />
       </Routes>
 
     </>
