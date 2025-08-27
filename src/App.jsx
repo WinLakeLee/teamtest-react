@@ -16,12 +16,12 @@ function App() {
   const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
-    if(sessionStorage.getItem('jwt'))
+    if (sessionStorage.getItem('jwt'))
       setAuth(true)
   }, [])
 
   useEffect(() => {
-    if(auth) {
+    if (auth) {
       axiosInstance.get('/userinfo')
         .then(response => {
           setUserInfo(response.data);
@@ -33,17 +33,17 @@ function App() {
 
   return (
     <>
-        <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo}/>
+      <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
 
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-         <Route path="/signup" element={<Signup />} />
-         <Route path="/login" element={<Login setAuth={setAuth} />} />
-         <Route path="/quiz" element={<QuizPage />} />
-         <Route path="/market" element={<Market />} />
-         <Route path="/ranking" element={<Ranking />} />
-         <Route path="/honor" element={<Honor />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login setAuth={setAuth} />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/market" element={<Market />} />
+        <Route path="/ranking" element={<Ranking />} />
+        <Route path="/honor" element={<Honor />} />
+      </Routes>
     </>
   )
 }
