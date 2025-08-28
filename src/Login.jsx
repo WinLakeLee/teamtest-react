@@ -23,7 +23,7 @@ const Login = ({ setAuth }) => {
       <h2>로그인</h2>
       <hr />
       아이디 : <input type="text" name="username" onChange={onChangeHandler} /> <br />
-      비밀번호 : <input type="password" name="username" onChange={onChangeHandler} /> <br />
+      비밀번호 : <input type="password" name="password" onChange={onChangeHandler} /> <br />
       <button onClick={() => {
         axiosInstance.post('/login', member)
         .then(response => {
