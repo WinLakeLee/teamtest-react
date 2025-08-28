@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const MyPage = ({ userInfo, setUserInfo }) => {
-  
-  const goToPage = () => {
-    window.location.href = "http://localhost:5173/modify";
-  };
+const MyPage = ({ userInfo, setUserInfo}) => {
+
+  const navigate = useNavigate();
 
   return (
     <div className="login-container">
@@ -15,11 +13,15 @@ const MyPage = ({ userInfo, setUserInfo }) => {
       <label>이메일</label> <br />
       <label>점수</label> <br />
 
-      <button onClick={goToPage}>
+      <button onClick={() => {
+        navigate("/modify")
+      }}>
         수정
       </button>
-      <button onClick={() => {
+      <button className="deleteId" onClick={() => {
+        
         alert("탈퇴 하시겠습니까?")
+        navigate("/")
       }}>탈퇴</button>
     </div>
   )
