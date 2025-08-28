@@ -11,6 +11,7 @@ import Ranking from './Ranking';
 import Honor from './Honor';
 import Market from './Market';
 import MyPage from './MyPage';
+import Modify from './Modify';
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -44,7 +45,8 @@ function App() {
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/honor" element={<Honor />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo}/>} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
+        <Route path="/modify" element={<Modify userInfo={userInfo} setUserInfo={setUserInfo}/>} />
       </Routes>
 
     </>
