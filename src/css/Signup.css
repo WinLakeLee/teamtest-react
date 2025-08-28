@@ -53,3 +53,12 @@
 .signup-container button:hover {
   background: #a29bfe;
 }
+
+label {
+  text-align: center;
+}
+
+.error {
+  color: red;
+  font-size: small;
+}

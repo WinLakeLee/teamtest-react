@@ -3,12 +3,6 @@ import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Header({ auth, setAuth, userInfo, setUserInfo }) {
-  // 로그인 여부 (실제로는 토큰이나 redux, context로 관리)
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // 로그인 / 로그아웃 토글 (예시)
-  const handleLogin = () => setIsLoggedIn(true);
-  const handleLogout = () => setIsLoggedIn(false);
 
   const logout = () => {
     sessionStorage.removeItem('jwt');
@@ -16,7 +10,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
     setUserInfo('');
   }
 
-   return (
+  return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand as={Link} to="/">종겜퀴즈</Navbar.Brand>
@@ -31,22 +25,23 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               <NavDropdown.Item as={Link} to="/quiz/lol">롤</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/maple">메이플</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/star">스타크래프트</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/quiz/ark">로스트아크</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/quiz/bg">배틀그라운드</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/quiz/etc">기타</NavDropdown.Item>
             </NavDropdown>
           </Nav>
 
           <Nav>
-            {!isLoggedIn ? (
+            {!auth ? (
               <>
                 <Nav.Link as={Link} to="/login">로그인</Nav.Link>
                 <Nav.Link as={Link} to="/signup">회원가입</Nav.Link>
               </>
             ) : (
               <>
+                <div>내 포인트:{auth.point}</div>
                 <Nav.Link as={Link} to="/mypage">마이페이지</Nav.Link>
-                <Button variant="outline-light" size="sm" onClick={handleLogout}>
+                <Button variant="outline-light" size="sm" onClick={logout}>
                   로그아웃
                 </Button>
               </>
