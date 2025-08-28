@@ -22,10 +22,9 @@ function QuizPage() {
       {questions.map((q, i) => (
         <div key={i}>
           <div>{q.question}</div>
-          <div>{q.answer1}</div>
-          <div>{q.answer2}</div>
-          <div>{q.answer3}</div>
-          <div>{q.answer4}</div>
+          <div>{q.answer[0]}</div>
+          <button
+              ></button>
         </div>
       ))}
     </div>

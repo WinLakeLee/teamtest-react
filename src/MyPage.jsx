@@ -1,8 +1,8 @@
-const MyPage = ({ userInfo }) => {
+const MyPage = ({ auth }) => {
   
   return (
     <div>
-      <p>{userInfo.nickname}님의 마이페이지</p>
+      <p>{auth.nickname}님의 마이페이지</p>
     </div>
   )
 }
