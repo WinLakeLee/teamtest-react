@@ -8,7 +8,7 @@ const MyPage = ({ userInfo, setUserInfo}) => {
 
   return (
     <div className="login-container">
-      <h2>님</h2>
+      <h2>{userInfo}님</h2>
       <hr />
       <label>닉네임</label> <br />
       <label>이메일</label> <br />
