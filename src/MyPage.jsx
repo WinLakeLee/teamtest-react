@@ -1,14 +1,15 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 
-const MyPage = ({ userInfo, setUserInfo}) => {
+const MyPage = ({ userInfo, setUserInfo, auth }) => {
 
   const navigate = useNavigate();
 
   return (
     <div className="login-container">
-      <h2>{userInfo}님</h2>
+      <p>{auth.nickname}님의 마이페이지</p>
       <hr />
       <label>닉네임</label> <br />
       <label>이메일</label> <br />
