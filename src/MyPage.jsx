@@ -2,8 +2,9 @@ const MyPage = ({ auth }) => {
   
   return (
     <div>
-      <p>{auth.nickname}님의 마이페이지</p>
+      <h2>{auth.nickname}님의 마이페이지</h2>
     </div>
+
   )
 }
 
