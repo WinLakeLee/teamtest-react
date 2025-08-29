@@ -32,7 +32,7 @@ function Honor () {
           </li>
         ))}
       </ul> */}
-    </div>  
+    </div>
   )
 }
 
