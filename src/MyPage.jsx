@@ -12,26 +12,34 @@ const MyPage = ({ userInfo, setUserInfo, auth }) => {
     <div className="login-container">
       <p>{auth.nickname}님의 마이페이지</p>
       <hr />
-      <label>닉네임</label> <br />
-      <label>이메일</label> <br />
-      <label>점수</label> <br />
+      <label>{userInfo.nickname}</label> <br />
+      <label>{userInfo.email}</label> <br />
+      <label>{userInfo.point}</label> <br />
 
-      <button onClick={() => {
-        navigate("/modify")
-      }}>
-        수정
+      <button onClick={() => navigate("/modify")}>
+      수정
       </button>
-      <button className="deleteId" onClick={() => {
-        axiosInstance.delete('/delete')
-          .then(response => {
-            console.log(response.data);
-            alert("탈퇴 하시겠습니까?")
-            navigate("/")
-          }) .catch(error => {
-            console.log(error);
-          })
-        
-      }}>탈퇴</button>
+
+      <button
+        className="deleteId"
+        onClick={() => {
+          if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
+
+          axiosInstance
+            .delete('/delete', { data: { id: userInfo.id } })
+            .then((response) => {
+              console.log(response.data);
+              alert("탈퇴가 완료되었습니다.");
+              navigate("/");
+            })
+            .catch((error) => {
+              console.error(error);
+              alert("탈퇴 중 오류가 발생했습니다.");
+            });
+        }}
+      >
+        탈퇴
+      </button>
     </div>
 
   )
