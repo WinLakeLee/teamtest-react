@@ -11,7 +11,7 @@ const Signup = () => {
     email: ''
    });
 
-   const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
