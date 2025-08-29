@@ -10,7 +10,7 @@ const MyPage = ({ userInfo, setUserInfo, auth }) => {
   return (
 
     <div className="login-container">
-      <p>{auth.nickname}님의 마이페이지</p>
+      <p>{userInfo.nickname}님의 마이페이지</p>
       <hr />
       <label>{userInfo.nickname}</label> <br />
       <label>{userInfo.email}</label> <br />
