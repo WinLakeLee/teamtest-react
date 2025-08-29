@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.MainPage.container{
+  margin-top: 6.25rem;
+  gap: 30px; 
+}
+.imp {
+  width: 80%;
+  height: 18.75rem;
+  padding-top: 10px;
+  margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+}
+.title {
+  text-align: center;
+  border-bottom: 1px solid rgb(175, 170, 170);
+}
+.ctt-title-red {
+  color: red;  /* 첫 3개의 공지: 글자 색을 빨강으로 */
+  margin-right: 10px;
+  font-weight: bold;
+}
+.content-list {
+  margin-top: 1rem;
+  overflow: auto;
+  height: 70%;
+}
+li {
+  margin: 10px;
+}
+.ctt-title {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
