@@ -20,11 +20,10 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
             <Nav.Link as={Link} to="/market">상점</Nav.Link>
             <Nav.Link as={Link} to="/ranking">랭킹</Nav.Link>
             <Nav.Link as={Link} to="/honor">명예의 전당</Nav.Link>
-
             <NavDropdown title="게임별 퀴즈" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/quiz/lol">롤</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/quiz/maple">메이플</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/quiz/star">스타크래프트</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/quiz/ms">메이플</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/quiz/sc">스타크래프트</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/bg">배틀그라운드</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/quiz/etc">기타</NavDropdown.Item>
