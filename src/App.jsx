@@ -41,12 +41,12 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
-        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/quiz/:id" element={<QuizPage />} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/honor" element={<Honor />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
-        <Route path="/modify" element={<Modify userInfo={userInfo} setUserInfo={setUserInfo}/>} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
       </Routes>
 
     </>

@@ -1,14 +1,16 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 
-const MyPage = ({ userInfo, setUserInfo}) => {
+const MyPage = ({ userInfo, setUserInfo, auth }) => {
 
   const navigate = useNavigate();
 
   return (
+
     <div className="login-container">
-      <h2>{userInfo.username}님</h2>
+      <p>{auth.nickname}님의 마이페이지</p>
       <hr />
       <label>{userInfo.nickname}</label> <br />
       <label>{userInfo.email}</label> <br />
@@ -39,6 +41,7 @@ const MyPage = ({ userInfo, setUserInfo}) => {
         탈퇴
       </button>
     </div>
+
   )
 }
 
