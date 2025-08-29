@@ -8,6 +8,7 @@ const MyPage = ({ userInfo, setUserInfo, auth }) => {
   const navigate = useNavigate();
 
   return (
+
     <div className="login-container">
       <p>{auth.nickname}님의 마이페이지</p>
       <hr />
@@ -32,6 +33,7 @@ const MyPage = ({ userInfo, setUserInfo, auth }) => {
         
       }}>탈퇴</button>
     </div>
+
   )
 }
 
