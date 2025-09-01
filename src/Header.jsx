@@ -39,26 +39,32 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               </>
             ) : (
               <>
-                <div style={{ color: "white", marginTop: "7px", marginRight: "50px" }}>
+              <div style={{ color: "white", marginTop: "12px", marginRight: "50px" }}>
                 내 포인트: {userInfo ? userInfo.point : "불러오는 중..."}
                 </div>
                 <Button variant="outline-light" size="sm" onClick={logout}>
                   로그아웃
                 </Button>
-                <Nav.Link as={Link} to="/mypage" style={{marginLeft: "30px"}}>마이페이지</Nav.Link>
+                <Nav.Link as={Link} to="/mypage" style={{marginLeft: "30px", marginTop: "10px"}}>마이페이지</Nav.Link>
+                
+                {/* 닉네임 + 등급이미지 */}
+                <div style={{ display: "flex", alignItems: "center", marginLeft: "10px" }}>
+                  {userInfo?.grade && (
+                  <img 
+                    src={`../images/rank/티어이미지/${userInfo.grade}.jpg`} 
+                    alt={userInfo.grade} 
+                    style={{ width: "30px", height: "30px", marginLeft: "10px" }} 
+                  />
+                )}
                 <div style={{ 
-                        color: "white", 
-                        marginTop: "7px", 
-                        marginLeft: "50px",
-                        padding: "5px",
-                        border: userInfo?.nicknameStyle ? `${userInfo.nicknameStyle}` : undefined,
-                        backgroundImage: userInfo?.nicknameBg ? `url(${userInfo.nicknameBg})` : undefined,
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat"
-                      }}
+                    color: "white", 
+                    padding: "5px",
+                    fontSize: "30px"
+                  }}
                 >
-                {userInfo?.nickname || "불러오는 중..."}
+                  {userInfo?.nickname || "불러오는 중..."}
                 </div>
+              </div>
               </>
             )}
           </Nav>
