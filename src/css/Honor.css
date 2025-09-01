@@ -1,5 +1,5 @@
 .honor-container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 50px auto;
   padding: 20px;
   font-family: 'Arial', sans-serif;
@@ -16,7 +16,12 @@
   margin-bottom: 30px;
   font-size: 14px;
 }
-
+.quiz-score-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  margin-top: 5rem;
+  gap: 3rem;
+}
 .honor-list {
   list-style: none;
   padding: 0;
