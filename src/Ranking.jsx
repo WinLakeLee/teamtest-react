@@ -28,6 +28,8 @@ function Ranking () {
           </tr>
         </thead>
         <tbody>
+          <td>123</td>
+
           {ranking.map((user, i) => (
             <tr key={i}>
               <td>{i+1}</td>
