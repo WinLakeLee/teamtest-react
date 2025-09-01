@@ -1,17 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
-import { useEffect, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import axiosInstance from '../axiosInstance';
 import { Route, Routes } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
-import QuizPage from './QuizPage';
 import MainPage from './MainPage';
 import Ranking from './Ranking';
 import Honor from './Honor';
 import Market from './Market';
-import MyPage from './MyPage';
 import Modify from './Modify';
+
+const MyPage = lazy(() => import('./MyPage'));
+const QuizPage = lazy(() => import('./QuizPage'));
 
 function App() {
   const [auth, setAuth] = useState(false);
@@ -32,17 +33,16 @@ function App() {
         })
     }
   }, [auth])
-
+  
   return (
     <>
       <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
-
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
-        <Route path="/quiz/:id" element={<QuizPage />} />
-        <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
+        <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
+        <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/honor" element={<Honor />} />
         <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setAuth={setAuth} setUserInfo={setUserInfo}/>} />

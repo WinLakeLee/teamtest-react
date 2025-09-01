@@ -12,7 +12,6 @@ function Honor ({gameScore}) {
       <h2>🏅 명예의 전당</h2>
       <p className="honor-subtitle">지난 주 1~5위</p>
       <div className="quiz-score-container">
-        
           {gameNames.map((game) => (
           <div key={game.name}>
             <h2 className="gamename">{game.label}</h2>
@@ -27,11 +26,8 @@ function Honor ({gameScore}) {
             </ul>
           </div>
         ))}
-      
       </div>
-       
     </div>
-     
   )
 };
 
