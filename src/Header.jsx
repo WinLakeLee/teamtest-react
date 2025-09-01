@@ -49,9 +49,13 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
                 <div style={{ 
                         color: "white", 
                         marginTop: "7px", 
-                        marginLeft: "50px"
+                        marginLeft: "50px",
+                        padding: "5px",
+                        border: userInfo?.nicknameStyle ? `${userInfo.nicknameStyle}` : undefined,
+                        backgroundImage: userInfo?.nicknameBg ? `url(${userInfo.nicknameBg})` : undefined,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat"
                       }}
-                // className={activeClass}
                 >
                 {userInfo?.nickname || "불러오는 중..."}
                 </div>
