@@ -16,7 +16,6 @@ import Modify from './Modify';
 function App() {
   const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState();
-  const [gameScore, setGameScore] = useState({ LOL:[], BG:[], SC:[], MS:[]});
 
   useEffect(() => {
     if (sessionStorage.getItem('jwt'))
@@ -34,17 +33,6 @@ function App() {
     }
   }, [auth])
 
-    useEffect(() => {
-    axiosInstance.get('/honor')
-      .then(response => {
-        console.log(response.data);
-        setGameScore(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      })
-  }, []);
-
   return (
     <>
       <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
@@ -54,11 +42,11 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
         <Route path="/quiz/:id" element={<QuizPage />} />
-        <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
+        <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
         <Route path="/ranking" element={<Ranking />} />
-        <Route path="/honor" element={<Honor gameScore={gameScore} />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
-        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+        <Route path="/honor" element={<Honor />} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setAuth={setAuth} setUserInfo={setUserInfo}/>} />
+        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setAuth={setAuth} setUserInfo={setUserInfo}/>} />
       </Routes>
 
     </>
