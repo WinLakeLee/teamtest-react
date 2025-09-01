@@ -39,11 +39,22 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               </>
             ) : (
               <>
-                <div>내 포인트:{auth.point}</div>
-                <Nav.Link as={Link} to="/mypage">마이페이지</Nav.Link>
+                <div style={{ color: "white", marginTop: "7px", marginRight: "50px" }}>
+                내 포인트: {userInfo ? userInfo.point : "불러오는 중..."}
+                </div>
                 <Button variant="outline-light" size="sm" onClick={logout}>
                   로그아웃
                 </Button>
+                <Nav.Link as={Link} to="/mypage" style={{marginLeft: "30px"}}>마이페이지</Nav.Link>
+                <div style={{ 
+                        color: "white", 
+                        marginTop: "7px", 
+                        marginLeft: "50px"
+                      }}
+                // className={activeClass}
+                >
+                {userInfo?.nickname || "불러오는 중..."}
+                </div>
               </>
             )}
           </Nav>

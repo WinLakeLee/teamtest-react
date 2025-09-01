@@ -1,0 +1,12 @@
+.border-bronze {
+  border: 2px solid brown;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+.bg-fire {
+  background-image: url('/fire.gif');
+  background-size: cover;
+  color: white;
+  padding: 2px 6px;
+}

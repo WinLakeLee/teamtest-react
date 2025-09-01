@@ -13,7 +13,9 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
   }
 
   return (
+
     <div className="login-container">
+      <p>{userInfo.nickname}님의 마이페이지</p>
       <h2>{userInfo.username}님</h2>
       <hr />
       <label>닉네임 : {userInfo.nickname}</label> <br />
@@ -23,6 +25,11 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
       <label>배그점수 : {userInfo.score}</label> <br />
       <label>스타점수 : {userInfo.score}</label> <br />
       <label>메이플점수 : {userInfo.score}</label> <br />
+
+      <hr />
+      <label>{userInfo.nickname}</label> <br />
+      <label>{userInfo.email}</label> <br />
+      <label>{userInfo.point}</label> <br />
 
       <button onClick={() => navigate("/modify")}>
       수정
@@ -37,6 +44,13 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
             .then((response) => {
               alert(response.data);
               logout();
+          if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
+
+          axiosInstance
+            .delete('/delete', { data: { id: userInfo.id } })
+            .then((response) => {
+              console.log(response.data);
+              alert("탈퇴가 완료되었습니다.");
               navigate("/");
             })
             .catch((error) => {
@@ -48,6 +62,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
         탈퇴
       </button>
     </div>
+
   )
 }
 
