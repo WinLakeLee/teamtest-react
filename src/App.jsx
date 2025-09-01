@@ -36,7 +36,6 @@ function App() {
   return (
     <>
       <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
-
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />

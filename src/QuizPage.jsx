@@ -15,6 +15,7 @@ function QuizPage({ userInfo }) {
       .then(response => {
         setQuizzes(response.data);
         setLoading(false);
+        setScore(0);
       })
       .catch(error => {
         console.log(error)
@@ -28,7 +29,7 @@ function QuizPage({ userInfo }) {
     setTimeout(() => {
       result();
     }, 90000);
-  }, [])
+  }, [userInfo])
 
   return (
     loading ?
