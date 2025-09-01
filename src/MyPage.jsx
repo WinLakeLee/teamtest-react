@@ -12,15 +12,6 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
     setUserInfo('');
   }
 
-  useEffect(() => {
-    
-  
-    return () => {
-      second
-    }
-  }, [third])
-  
-
   return (
 
     <div className="login-container">
