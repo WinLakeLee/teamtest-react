@@ -1,21 +1,29 @@
 .honor-container {
+  max-width: 600px;
   max-width: 900px;
   margin: 50px auto;
   padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: 'Arial', sans-serif;
 }
 
 .honor-container h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: #2d3436;
 }
-
 .honor-subtitle {
   text-align: center;
   color: #636e72;
   margin-bottom: 30px;
   font-size: 14px;
 }
+.honor-table {
+  width: 100%;
+  border-collapse: collapse;
+
 .quiz-score-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
@@ -41,27 +49,18 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.honor-card:hover {
-  transform: translateY(-3px);
+.honor-table th,
+.honor-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
-.honor-rank {
-  font-weight: bold;
-  color: #e17055;
+.honor-table tr:hover {
+  background: #f1f2f6;
 }
 
-.honor-username {
-  font-size: 16px;
-  font-weight: bold;
-  color: #2d3436;
-}
-
-.honor-score {
-  color: #0984e3;
-  font-weight: bold;
-}
-
-.honor-period {
-  font-size: 12px;
-  color: #636e72;
+.honor-table th {
+  background: #0984e3;
+  color: white;
 }

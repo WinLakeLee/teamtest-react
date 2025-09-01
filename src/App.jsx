@@ -17,6 +17,7 @@ const QuizPage = lazy(() => import('./QuizPage'));
 function App() {
   const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState();
+  const [gameScore, setGameScore] = useState({ LOL:[], BG:[], SC:[], MS:[]});
 
   useEffect(() => {
     if (sessionStorage.getItem('jwt'))
@@ -33,7 +34,17 @@ function App() {
         })
     }
   }, [auth])
-  
+
+    useEffect(() => {
+    axiosInstance.get('/ranking')
+      .then(response => {
+        setGameScore(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }, []);
+
   return (
     <>
       <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
@@ -41,12 +52,15 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
+        <Route path="/quiz/:id" element={<QuizPage />} />
+        <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/honor" element={<Honor />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setAuth={setAuth} setUserInfo={setUserInfo}/>} />
-        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setAuth={setAuth} setUserInfo={setUserInfo}/>} />
+        <Route path="/ranking" element={<Ranking gameScore={gameScore} />} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
       </Routes>
 
     </>

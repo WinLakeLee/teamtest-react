@@ -1,36 +1,67 @@
 .ranking-container {
-  max-width: 600px;
+  max-width: 900px;
   margin: 50px auto;
   padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: 'Arial', sans-serif;
 }
 
 .ranking-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.ranking-subtitle {
+  text-align: center;
+  color: #636e72;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.quiz-score-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  margin-top: 5rem;
+  gap: 3rem;
+}
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fff;
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.ranking-card:hover {
+  transform: translateY(-3px);
+}
+
+.ranking-rank {
+  font-weight: bold;
+  color: #e17055;
+}
+
+.ranking-username {
+  font-size: 16px;
+  font-weight: bold;
   color: #2d3436;
 }
 
-.ranking-table {
-  width: 100%;
-  border-collapse: collapse;
+.ranking-score {
+  color: #0984e3;
+  font-weight: bold;
 }
 
-.ranking-table th,
-.ranking-table td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.ranking-table tr:hover {
-  background: #f1f2f6;
-}
-
-.ranking-table th {
-  background: #0984e3;
-  color: white;
+.ranking-period {
+  font-size: 12px;
+  color: #636e72;
 }
