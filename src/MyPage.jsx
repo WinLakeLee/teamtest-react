@@ -6,11 +6,20 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
 
   const navigate = useNavigate();
 
-    const logout = () => {
+  const logout = () => {
     sessionStorage.removeItem('jwt');
     setAuth(false);
     setUserInfo('');
   }
+
+  useEffect(() => {
+    
+  
+    return () => {
+      second
+    }
+  }, [third])
+  
 
   return (
 
@@ -32,7 +41,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
       <label>{userInfo.point}</label> <br />
 
       <button onClick={() => navigate("/modify")}>
-      수정
+        수정
       </button>
 
       <button
@@ -44,20 +53,23 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
             .then((response) => {
               alert(response.data);
               logout();
-          if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
 
-          axiosInstance
-            .delete('/delete', { data: { id: userInfo.id } })
-            .then((response) => {
-              console.log(response.data);
-              alert("탈퇴가 완료되었습니다.");
-              navigate("/");
+              if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
+
+              axiosInstance
+                .delete('/delete', { data: { id: userInfo.id } })
+                .then((response) => {
+                  console.log(response.data);
+                  alert("탈퇴가 완료되었습니다.");
+                  navigate("/");
+                })
+                .catch((error) => {
+                  console.error(error);
+                  alert("탈퇴 중 오류가 발생했습니다.");
+                });
             })
-            .catch((error) => {
-              console.error(error);
-              alert("탈퇴 중 오류가 발생했습니다.");
-            });
-        }}
+        }
+        }
       >
         탈퇴
       </button>

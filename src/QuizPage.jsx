@@ -20,16 +20,24 @@ function QuizPage({ userInfo }) {
       .catch(error => {
         console.log(error)
       })
-  }, [game]);
+    }, [game]);
   useEffect(() => {
-    const result = () => {
+    if(userInfo && userInfo.username) {
+      const result = () => {
       axiosInstance.post(`/quiz/result`, { score: score, game: game, username: userInfo.username })
-        .then(response => console.log(response.data.score))
+        .then(response => {
+          console.log(response.data);
+          setScore(0);
+        })
+      }
+      const timer = setTimeout(() => {
+        result();
+      }, 10000);
+      return () => {
+        clearTimeout (timer);
+      };
     }
-    setTimeout(() => {
-      result();
-    }, 90000);
-  }, [userInfo])
+  }, [score])
 
   return (
     loading ?

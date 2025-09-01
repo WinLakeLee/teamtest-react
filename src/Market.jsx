@@ -34,7 +34,7 @@ const Market = ({auth, setAuth, userInfo}) => {
     .catch(error => console.error(error));
   }, [userInfo]);;
 
-  const handlePurchase = async (item) => {    
+  const handlePurchase = async (item) => {
     if(auth.point < item.itemPrice){
       alert('포인트가 부족합니다')
       return;
