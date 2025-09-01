@@ -35,7 +35,7 @@ function App() {
   }, [auth])
 
     useEffect(() => {
-    axiosInstance.get('/honor')
+    axiosInstance.get('/ranking')
       .then(response => {
         setGameScore(response.data);
       })
@@ -54,8 +54,8 @@ function App() {
         <Route path="/login" element={<Login setAuth={setAuth} />} />
         <Route path="/quiz/:id" element={<QuizPage />} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/honor" element={<Honor gameScore={gameScore} />} />
+        <Route path="/honor" element={<Honor />} />
+        <Route path="/ranking" element={<Ranking gameScore={gameScore} />} />
         <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
       </Routes>
