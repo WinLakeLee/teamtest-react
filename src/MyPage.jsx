@@ -13,11 +13,9 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
   }
 
   return (
-
     <div className="login-container">
-      <p>{userInfo.nickname}님의 마이페이지</p>
       <h2>{userInfo.username}님</h2>
-      <hr />
+      <p>{userInfo.nickname}님의 마이페이지</p>
       <label>닉네임 : {userInfo.nickname}</label> <br />
       <label>이메일 : {userInfo.email}</label> <br />
       <label>포인트 : {userInfo.point}</label> <br />
@@ -26,15 +24,9 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
       <label>스타점수 : {userInfo.score}</label> <br />
       <label>메이플점수 : {userInfo.score}</label> <br />
 
-      <hr />
-      <label>{userInfo.nickname}</label> <br />
-      <label>{userInfo.email}</label> <br />
-      <label>{userInfo.point}</label> <br />
-
       <button onClick={() => navigate("/modify")}>
         수정
       </button>
-
       <button
         className="deleteId"
         onClick={() => {
@@ -44,9 +36,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
             .then((response) => {
               alert(response.data);
               logout();
-
               if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
-
               axiosInstance
                 .delete('/delete', { data: { id: userInfo.id } })
                 .then((response) => {
@@ -65,8 +55,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
         탈퇴
       </button>
     </div>
-
-  )
-}
+  );
+};
 
 export default MyPage;

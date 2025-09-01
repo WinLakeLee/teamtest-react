@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../axiosInstance";
 import './css/Market.css'
 
-const Market = ({auth, setAuth, userInfo}) => {
+const Market = ({auth, setAuth, userInfo, setUserInfo}) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [myItem, setMyItem] = useState([]);
 
-  console.log(userInfo)
   useEffect(() => {
     axiosInstance.get('/market')
       .then(response => {
@@ -74,10 +73,23 @@ const Market = ({auth, setAuth, userInfo}) => {
     }
   };
 
-  // const gradeClass = myItem.find(i => i.item.itemCategory === "GRADE")?.item.effectClass || "";
-  // const imageClass = myItem.find(i => i.item.itemCategory === "IMAGE")?.item.effectClass || "";
+  const handleUseItem = async (useItem) => {
+    try {
+      const response = await axiosInstance.post(`/market/use/${userInfo.id}/${useItem.item.itemId}`);
+    
+      const updatedUser = response.data;
 
-  // const activeClass = `${gradeClass} ${imageClass}`.trim();
+      setUserInfo(prev => ({
+        ...prev,
+        grade: updatedUser.grade,           // GRADE 적용
+        nicknameBg: updatedUser.nicknameBg  // IMAGE 적용
+      }));
+
+     alert(`${useItem.item.itemName} 사용완료`);
+    } catch (err) {
+      alert(err.response?.data || "사용 실패");
+    }
+  };
 
   if(loading) 
     return <div>불러오는 중...</div>
@@ -153,7 +165,7 @@ const Market = ({auth, setAuth, userInfo}) => {
               ) : ( 
               <button onClick={() => handleRefund(myItem)}>환불</button>
               )}</td>
-              <td className="buy-button"><button onClick={() => (myItem)}>사용하기</button></td>
+              <td className="buy-button"><button onClick={() => handleUseItem(myItem)}>사용하기</button></td>
             </tr>  
           ))}
       </tbody>   
