@@ -3,7 +3,7 @@ import axiosInstance from '../axiosInstance';
 import './css/Honor.css';
 
 
-function Honor () {
+function Honor ({gameScore}) {
   const [honor, setHonor] = useState([]);
   
   useEffect(() => {
