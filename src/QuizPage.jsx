@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import './json/Sample.json';
 import { PacmanLoader } from "react-spinners";
+import QuizAnswer from "./component/QuizAnswer";
 
 function QuizPage({ userInfo }) {
   const { game } = useParams(); // lol, maple, star ...
@@ -20,21 +21,21 @@ function QuizPage({ userInfo }) {
       .catch(error => {
         console.log(error)
       })
-    }, [game]);
+  }, [game]);
   useEffect(() => {
-    if(userInfo && userInfo.username) {
+    if (userInfo && userInfo.username) {
       const result = () => {
-      axiosInstance.post(`/quiz/result`, { score: score, game: game, username: userInfo.username })
-        .then(response => {
-          console.log(response.data);
-          setScore(0);
-        })
+        axiosInstance.post(`/quiz/result`, { score: score, game: game, username: userInfo.username })
+          .then(response => {
+            console.log(response.data);
+            setScore(0);
+          })
       }
       const timer = setTimeout(() => {
         result();
       }, 10000);
       return () => {
-        clearTimeout (timer);
+        clearTimeout(timer);
       };
     }
   }, [score])
@@ -48,42 +49,10 @@ function QuizPage({ userInfo }) {
         <h1>현재 점수 : {score}</h1>
         <div key={index}>
           <div>{quizzes[index].question}</div>
-          <div><button onClick={() => {
-            const selectedAnswer = quizzes[index].answer[0];
-            setIndex(index + 1);
-            axiosInstance.post(`/quiz`, { id: quizzes[index].quizId, answer: selectedAnswer })
-              .then(response => {
-                setScore(prevScore => prevScore + response.data);
-              })
-              .catch(error => console.log(error))
-          }} value={quizzes[index].answer[0]}>1번</button>{quizzes[index].answer[0]}</div>
-          <div><button onClick={() => {
-            const selectedAnswer = quizzes[index].answer[1];
-            setIndex(index + 1);
-            axiosInstance.post(`/quiz`, { id: quizzes[index].quizId, answer: selectedAnswer })
-              .then(response => {
-                setScore(prevScore => prevScore + response.data);
-              })
-          }}>2번</button>{quizzes[index].answer[1]}</div>
-          <div><button onClick={() => {
-            const selectedAnswer = quizzes[index].answer[2];
-            setIndex(index + 1);
-            axiosInstance.post(`/quiz`, { id: quizzes[index].quizId, answer: selectedAnswer })
-              .then(response => {
-                setScore(prevScore => prevScore + response.data);
-              })
-          }}>3번</button>{quizzes[index].answer[2]}</div>
-          <div><button onClick={() => {
-            const selectedAnswer = quizzes[index].answer[3];
-            setIndex(index + 1);
-            axiosInstance.post(`/quiz`, { id: quizzes[index].quizId, answer: selectedAnswer })
-              .then(response => {
-                setScore(prevScore => prevScore + response.data);
-              })
-          }}>4번</button>{quizzes[index].answer[3]}</div>
+          <QuizAnswer id={quizzes[index].quizId} answer={quizzes[index].answer} index={index} setIndex={setIndex} score={score} setScore={setScore}/>
         </div>
       </div>
-  );
+  )
 }
 
 export default QuizPage;

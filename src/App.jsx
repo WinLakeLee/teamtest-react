@@ -52,7 +52,6 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
-        <Route path="/quiz/:id" element={<QuizPage />} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
