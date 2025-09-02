@@ -40,7 +40,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
             </label>
           </div>
          );
-      })}
+        })}
 
       <button onClick={() => navigate("/modify")}>
         수정

@@ -1,7 +1,14 @@
 .ranking-container {
   max-width: 900px;
   margin: 50px auto;
-  padding: 20px;
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  border: 3px solid #a0a0a0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: black;
+  transition: transform 0.2s ease-in-out;
   font-family: 'Arial', sans-serif;
 }
 
@@ -13,14 +20,13 @@
 .ranking-subtitle {
   text-align: center;
   color: #636e72;
-  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
   font-size: 14px;
 }
 .quiz-score-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
-  margin-top: 5rem;
-  gap: 3rem;
+  border-radius: 5px;
 }
 .ranking-list {
   list-style: none;
@@ -31,23 +37,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background: #fff;
+  color: white;
+  background: rgba(40,40,40,0.8);
   margin-bottom: 12px;
-  padding: 15px 20px;
+  padding: 10px 15px;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-
+  z-index: 1;
   transition: transform 0.2s ease-in-out;
 }
 
 .ranking-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(75, 51, 51, 0.548), 0 0 12px rgba(160,160,160,0.6);
 }
 
 .ranking-rank {
   font-weight: bold;
   color: #e17055;
+}
+/* 상위 3위 전용 스타일 */
+.ranking-card:nth-child(1) {
+  background: linear-gradient(145deg, #ffd700, #ffa500); /* 금빛 */
+  color: #000;
+}
+.ranking-card:nth-child(2) {
+  background: linear-gradient(145deg, #c0c0c0, #7d7d7d); /* 은빛 */
+  color: #000;
+}
+.ranking-card:nth-child(3) {
+  background: linear-gradient(145deg, #cd7f32, #8b4513); /* 동빛 */
+  color: #fff;
 }
 
 .ranking-username {

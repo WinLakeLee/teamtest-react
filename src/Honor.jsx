@@ -19,8 +19,11 @@ function Honor ({honor}) {
         </thead>
         <tbody>
           {honor.map((user, i) => (
-            <tr key={i}>
-              <td>{i+1}</td>
+            <tr key={i} className='honor-card'>
+              <td className={i < 1 ? "honor-TopRank" : "honor-rank"} >
+                    {i < 1 ? ( <img src={"../images/honorTrophy.png"} 
+                                    alt={`${i + 1}위`} 
+                                    style={{ width: "25px", height: "25px" }}/> ) : (i + 1)}</td>
               <td>{user.nickname}</td>
               <td>{user.totalScore}</td>
             </tr>
