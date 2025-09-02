@@ -1,4 +1,5 @@
 import './css/Ranking.css';
+import MyPage from './MyPage';
 
 function Ranking ({gameScore}) {
   const gameNames = [
@@ -30,9 +31,8 @@ function Ranking ({gameScore}) {
       
       </div>
        
+      
     </div>
-     
   )
 };
-
 export default Ranking;

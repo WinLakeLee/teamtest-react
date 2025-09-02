@@ -58,7 +58,7 @@ function App() {
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth}/>} />
         <Route path="/honor" element={<Honor />} />
         <Route path="/ranking" element={<Ranking gameScore={gameScore} />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} gameScore={gameScore}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
       </Routes>
 

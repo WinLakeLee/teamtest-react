@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
+import "./css/MyPage.css";
 
 const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
 
   const navigate = useNavigate();
-
   const logout = () => {
     sessionStorage.removeItem('jwt');
     setAuth(false);
