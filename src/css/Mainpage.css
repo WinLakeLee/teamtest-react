@@ -4,8 +4,18 @@
   box-sizing: border-box;
 }
 .MainPage.container{
+  display: flex;
+  justify-content: center;
   margin-top: 6.25rem;
   gap: 30px; 
+}
+.rankin_container {
+  display: flex;
+  justify-content: center;
+}
+.ranking_table {
+  width: 60%;
+  font-size: 12px;
 }
 .imp {
   width: 60%;
