@@ -1,7 +1,7 @@
 import './css/Honor.css';
 
 
-function Honor () {
+function Honor ({gameScore}) {
   const [honor, setHonor] = useState([]);
   
   useEffect(() => {
@@ -14,7 +14,6 @@ function Honor () {
       })
   }, []) 
   
-function Honor ({gameScore}) {
   const gameNames = [
     { name: "LOL", label: "리그 오브 레전드" },
     { name: "MS", label: "메이플스토리" },

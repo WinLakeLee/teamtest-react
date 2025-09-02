@@ -76,16 +76,9 @@ const Market = ({auth, setAuth, userInfo, setUserInfo}) => {
   const handleUseItem = async (useItem) => {
     try {
       const response = await axiosInstance.post(`/market/use/${userInfo.id}/${useItem.item.itemId}`);
-    
-      const updatedUser = response.data;
 
-      setUserInfo(prev => ({
-        ...prev,
-        grade: updatedUser.grade,           // GRADE 적용
-        nicknameBg: updatedUser.nicknameBg  // IMAGE 적용
-      }));
-
-     alert(`${useItem.item.itemName} 사용완료`);
+     alert(`${response.data.itemName} 사용완료`);
+     window.location.reload();   // 사용완료 시 새로고침 실행
     } catch (err) {
       alert(err.response?.data || "사용 실패");
     }
