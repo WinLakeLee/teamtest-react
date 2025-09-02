@@ -8,6 +8,7 @@ function Honor () {
   useEffect(() => {
     axiosInstance.get("/honor")
       .then(response => {
+        console.log(response.data);
         setHonor(response.data);
       })
       .catch(error => {
