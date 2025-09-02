@@ -1,20 +1,8 @@
-import { useEffect, useState } from 'react';
-import axiosInstance from '../axiosInstance';
 import './css/Honor.css';
 
 
-function Honor ({gameScore}) {
-  const [honor, setHonor] = useState([]);
-  
-  useEffect(() => {
-    axiosInstance.get("/honor")
-      .then(response => {
-        setHonor(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }, []) 
+function Honor ({honor}) {
+
   
   return (
     

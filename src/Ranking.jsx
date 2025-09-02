@@ -1,13 +1,8 @@
 import './css/Ranking.css';
 import MyPage from './MyPage';
 
-function Ranking ({gameScore}) {
-  const gameNames = [
-    { name: "LOL", label: "리그 오브 레전드" },
-    { name: "MS", label: "메이플스토리" },
-    { name: "BG", label: "배틀그라운드" },
-    { name: "SC", label: "스타크래프트" },
-  ];
+function Ranking ({gameScore, gameNames}) {
+  
   return (
     <div className="ranking-container">
       <h2>🏅 랭킹</h2>

@@ -18,6 +18,13 @@ function App() {
   const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState();
   const [gameScore, setGameScore] = useState({ LOL:[], BG:[], SC:[], MS:[]});
+  const [honor, setHonor] = useState([]);
+  const gameNames = [
+    { name: "LOL", label: "리그 오브 레전드" },
+    { name: "MS", label: "메이플스토리" },
+    { name: "BG", label: "배틀그라운드" },
+    { name: "SC", label: "스타크래프트" },
+  ];
 
   useEffect(() => {
     if (sessionStorage.getItem('jwt'))
@@ -38,6 +45,7 @@ function App() {
     useEffect(() => {
     axiosInstance.get('/ranking')
       .then(response => {
+        console.log(response.data);
         setGameScore(response.data);
       })
       .catch(error => {
@@ -45,6 +53,15 @@ function App() {
       })
   }, []);
 
+  useEffect(() => {
+    axiosInstance.get("/honor")
+      .then(response => {
+        setHonor(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []) 
   return (
     <>
       <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
@@ -54,9 +71,9 @@ function App() {
         <Route path="/login" element={<Login setAuth={setAuth} />} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
-        <Route path="/honor" element={<Honor />} />
-        <Route path="/ranking" element={<Ranking gameScore={gameScore} />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} gameScore={gameScore}/>} />
+        <Route path="/honor" element={<Honor honor={honor}/>} />
+        <Route path="/ranking" element={<Ranking gameScore={gameScore} gameNames={gameNames} />} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} gameScore={gameScore} gameNames={gameNames}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
       </Routes>
 
