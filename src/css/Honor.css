@@ -23,7 +23,7 @@
 .honor-table {
   width: 100%;
   border-collapse: collapse;
-
+}
 .quiz-score-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 

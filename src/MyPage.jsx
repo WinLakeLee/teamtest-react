@@ -13,15 +13,15 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
   }
 
   return (
-    <div className="mypage-container" 
+    <div className="mypage-container"
       style={{
-      backgroundImage: userInfo?.nicknameBg  // nicknameBg(테두리이미지)가 있을때만 적용
-      ? `url(${userInfo.nicknameBg})`        // 없으면 none
-      : "none"
+        backgroundImage: userInfo?.nicknameBg  // nicknameBg(테두리이미지)가 있을때만 적용
+          ? `url(${userInfo.nicknameBg})`        // 없으면 none
+          : "none"
       }}>
       <img src={`../images/rank/티어이미지/${userInfo?.grade}.jpg`} // 등급이미지 
-           alt={userInfo?.grade} 
-           style={{ width: "50px", height: "50px", marginLeft: "10px" }} 
+        alt={userInfo?.grade}
+        style={{ width: "50px", height: "50px", marginLeft: "10px" }}
       />
       <h2>{userInfo.username}님</h2>
       <p>{userInfo.nickname}님의 마이페이지</p>

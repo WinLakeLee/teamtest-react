@@ -1,13 +1,13 @@
 import axiosInstance from "../../axiosInstance";
 
-const QuizAnswer = ({ id, answer, index, setIndex, setScore }) => {
+const QuizAnswer = ({ id, answer, index, setIndex, score, setScore }) => {
   return (
     <>
       {answer.map((currentAnswer, i) => (
         <div key={i}>
           <button onClick={() => {
             setIndex(index + 1);
-            axiosInstance.post(`/quiz`, { id: id, answer: currentAnswer })
+            axiosInstance.post(`/score`, { id: id, answer: currentAnswer })
               .then(response => {
                 setScore(prevScore => prevScore + response.data);
               })
