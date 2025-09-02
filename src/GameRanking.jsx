@@ -27,20 +27,16 @@ const Gameranking = () => {
           <tr>
             <td>#</td>
             <td>게임</td>
-            <td>주소</td>
+            <td>분류</td>
             <td>출시일</td>
           </tr>
         </thead>
         <tbody>
           {data && data.map((game, index) => (
-            <tr key={game[index]}>
+            <tr key={index}>
               <td>{index + 1}</td>
               <td>{game.TITLE}</td>
-              <td>
-                <a href={game.URL} target="_blank" rel="noopener noreferrer">
-                  {game.URL}
-                </a>
-              </td>
+              <td>{game.GENRE}</td>
               <td>{game.ISSUED_DATE}</td>
             </tr>
           ))}
