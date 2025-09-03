@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { data, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
-import './css/Mypage.css'
+import "./css/MyPage.css";
 
-const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) => {
+const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames }) => {
 
   const navigate = useNavigate();
   const logout = () => {
@@ -11,7 +10,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
     setAuth(false);
     setUserInfo('');
   }
-  if(!userInfo)
+  if (!userInfo)
     return <div>로딩창</div>
 
   return (
@@ -34,14 +33,14 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
         const score = gameScore[game.name]?.find(
           (user) => user.nickname === userInfo.nickname // user = 현재 보고 있는 유저, userinfo = 로그인한 유저
         );
-         return (
+        return (
           <div key={game.name}>
             <label>
               {game.label} 점수 : {score ? score.score : 0}
             </label>
           </div>
-         );
-        })}
+        );
+      })}
 
       <button onClick={() => navigate("/modify")}>
         수정
@@ -55,7 +54,18 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
             .then((response) => {
               alert(response.data);
               logout();
-              navigate("/");
+              if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
+              axiosInstance
+                .delete('/delete', { data: { id: userInfo.id } })
+                .then((response) => {
+                  console.log(response.data);
+                  alert("탈퇴가 완료되었습니다.");
+                  navigate("/");
+                })
+                .catch((error) => {
+                  console.error(error);
+                  alert("탈퇴 중 오류가 발생했습니다.");
+                });
             })
             .catch((error) => {
               console.error(error);
