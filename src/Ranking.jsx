@@ -1,5 +1,5 @@
 import './css/Ranking.css';
-import MyPage from './MyPage';
+
 
 function Ranking ({gameScore, gameNames}) {
   

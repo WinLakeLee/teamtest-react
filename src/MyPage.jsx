@@ -7,7 +7,6 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
   const navigate = useNavigate();
   const logout = () => {
     sessionStorage.removeItem('jwt');
-    setAuth(false);
     setUserInfo('');
   }
   if(!userInfo)
@@ -60,6 +59,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
                 .then((response) => {
                   console.log(response.data);
                   alert("탈퇴가 완료되었습니다.");
+                  logout();
                   navigate("/");
                 })
                 .catch((error) => {
