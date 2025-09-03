@@ -4,7 +4,7 @@ import LOL from '../images/lol.jpg';
 import LostArk from '../images/LostArk.png';
 import MapleStory from '../images/maplestory.jpg';
 import StarCraft from '../images/starcraft.jpg';
-import Battleground from '../images/effect/테두리이미지/fire.gif';
+import Battleground from '../images/battleground.jpg';
 
 function Slider() {
   const images = [LOL, LostArk, MapleStory, StarCraft, Battleground];

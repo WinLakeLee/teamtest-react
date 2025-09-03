@@ -3,7 +3,7 @@ import axiosInstance from '../axiosInstance';
 import './css/Honor.css';
 
 
-function Honor () {
+function Honor ({gameScore}) {
   const [honor, setHonor] = useState([]);
   
   useEffect(() => {
@@ -16,6 +16,13 @@ function Honor () {
       })
   }, []) 
   
+  const gameNames = [
+    { name: "LOL", label: "리그 오브 레전드" },
+    { name: "MS", label: "메이플스토리" },
+    { name: "BG", label: "배틀그라운드" },
+    { name: "SC", label: "스타크래프트" },
+  ];
+
   return (
     
     <div className="honor-container">
