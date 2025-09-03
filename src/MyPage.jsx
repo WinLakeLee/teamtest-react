@@ -5,10 +5,9 @@ import axiosInstance from "../axiosInstance";
 const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
 
   const navigate = useNavigate();
-
+  console.log(auth)
   const logout = () => {
     sessionStorage.removeItem('jwt');
-    setAuth(false);
     setUserInfo('');
   }
 
@@ -51,6 +50,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
                 .then((response) => {
                   console.log(response.data);
                   alert("탈퇴가 완료되었습니다.");
+                  logout();
                   navigate("/");
                 })
                 .catch((error) => {
