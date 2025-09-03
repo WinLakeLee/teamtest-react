@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import './css/Mypage.css'
 
@@ -7,8 +7,10 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
 
   const navigate = useNavigate();
   console.log(auth)
-  const logout = () => {
+
+    const logout = () => {
     sessionStorage.removeItem('jwt');
+    setAuth(false);
     setUserInfo('');
   }
 
@@ -45,27 +47,17 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
             .then((response) => {
               alert(response.data);
               logout();
-              if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
-              axiosInstance
-                .delete('/delete', { data: { id: userInfo.id } })
-                .then((response) => {
-                  console.log(response.data);
-                  alert("탈퇴가 완료되었습니다.");
-                  logout();
-                  navigate("/");
-                })
-                .catch((error) => {
-                  console.error(error);
-                  alert("탈퇴 중 오류가 발생했습니다.");
-                });
+              navigate("/");
             })
-        }
-        }
+            .catch((error) => {
+              console.error(error);
+            });
+        }}
       >
         탈퇴
       </button>
     </div>
-  );
-};
+  )
+}
 
 export default MyPage;

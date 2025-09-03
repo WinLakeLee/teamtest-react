@@ -56,8 +56,8 @@ function App() {
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
         <Route path="/honor" element={<Honor />} />
         <Route path="/ranking" element={<Ranking gameScore={gameScore} />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
-        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} setAuth={setAuth}/>} />
+        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} setAuth={setAuth}/>} />
       </Routes>
 
     </>

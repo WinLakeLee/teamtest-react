@@ -1,12 +1,27 @@
 import { Nav } from "react-bootstrap";
 import "./css/Sidebar.css"
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
+  const [show, setShow] = useState();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if(window.scrollY > 420) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [])
 
   return (
     <>
     <div className="layout">
+      {show && (
       <div className="sidebar">
         <h2 className="title">🎮</h2>
         <ul className="menu">
@@ -18,6 +33,7 @@ const Sidebar = () => {
           </Nav>
         </ul>
       </div>
+      )}
     </div>
     </>
   )
