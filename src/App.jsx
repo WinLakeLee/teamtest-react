@@ -75,6 +75,7 @@ function App() {
         <Route path="/ranking" element={<Ranking gameScore={gameScore} gameNames={gameNames} />} />
         <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} gameScore={gameScore} gameNames={gameNames}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+         develop
       </Routes>
 
     </>

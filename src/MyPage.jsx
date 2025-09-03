@@ -67,13 +67,15 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
                   alert("탈퇴 중 오류가 발생했습니다.");
                 });
             })
-        }
-        }
+            .catch((error) => {
+              console.error(error);
+            });
+        }}
       >
         탈퇴
       </button>
     </div>
-  );
-};
+  )
+}
 
 export default MyPage;

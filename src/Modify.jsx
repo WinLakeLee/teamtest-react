@@ -33,6 +33,7 @@ const Modify = ({ userInfo, setUserInfo, auth, setAuth }) => {
       .then((response) => {
         console.log(response.data);
         alert("수정이 완료되었습니다.");
+        alert("다시 로그인해 주세요")
         logout();
         navigate("/"); 
       })
