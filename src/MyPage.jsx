@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import { data, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
-import './css/Mypage.css'
+import "./css/MyPage.css";
 
 const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) => {
 
@@ -55,7 +54,18 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) =
             .then((response) => {
               alert(response.data);
               logout();
-              navigate("/");
+              if (!window.confirm("정말로 탈퇴하시겠습니까?")) return;
+              axiosInstance
+                .delete('/delete', { data: { id: userInfo.id } })
+                .then((response) => {
+                  console.log(response.data);
+                  alert("탈퇴가 완료되었습니다.");
+                  navigate("/");
+                })
+                .catch((error) => {
+                  console.error(error);
+                  alert("탈퇴 중 오류가 발생했습니다.");
+                });
             })
             .catch((error) => {
               console.error(error);
