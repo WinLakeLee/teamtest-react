@@ -34,7 +34,7 @@ const Modify = ({ userInfo, setUserInfo, auth, setAuth }) => {
         console.log(response.data);
         alert("수정이 완료되었습니다.");
         logout();
-        navigate("/"); 
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -45,7 +45,7 @@ const Modify = ({ userInfo, setUserInfo, auth, setAuth }) => {
   return (
     <div className="login-container">
       <h2>{userInfo.username}님</h2>
-      <br/>
+      <br />
       <label>
         <input
           type="text"

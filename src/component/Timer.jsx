@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from '../css/Timer.module.css'
 
-const Timer = ({limit}) => {
-  const [time, setTime] = useState(limit/1000);
+const Timer = ({ limit }) => {
+  const [time, setTime] = useState(limit / 1000);
   useEffect(() => {
     const setTimer = setInterval(() => {
       setTime(prevTime => prevTime - 1);
@@ -12,7 +12,7 @@ const Timer = ({limit}) => {
       clearInterval(setTimer);
     }
   }, [])
-  
+
 
   return (
     <>

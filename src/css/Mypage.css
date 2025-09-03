@@ -33,10 +33,10 @@ label {
 
   width: 350px;
   padding: 30px;
-  margin: 100px auto;  
+  margin: 100px auto;
   background: #00000033;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
   font-family: 'Arial', sans-serif;
 }

@@ -3,7 +3,7 @@ import axiosInstance from '../axiosInstance';
 import './css/Honor.css';
 
 
-function Honor ({gameScore}) {
+function Honor({ gameScore }) {
   const [honor, setHonor] = useState([]);
 
   useEffect(() => {
@@ -14,8 +14,8 @@ function Honor ({gameScore}) {
       .catch(error => {
         console.log(error);
       })
-  }, []) 
-  
+  }, [])
+
   const gameNames = [
     { name: "LOL", label: "리그 오브 레전드" },
     { name: "MS", label: "메이플스토리" },
@@ -24,7 +24,7 @@ function Honor ({gameScore}) {
   ];
 
   return (
-    
+
     <div className="honor-container">
       <h2>🏆 명예의 전당</h2>
       <p className="honor-subtitle">지난 주 1~10위</p>
@@ -39,7 +39,7 @@ function Honor ({gameScore}) {
         <tbody>
           {honor.map((user, i) => (
             <tr key={i}>
-              <td>{i+1}</td>
+              <td>{i + 1}</td>
               <td>{user.nickname}</td>
               <td>{user.totalScore}</td>
             </tr>

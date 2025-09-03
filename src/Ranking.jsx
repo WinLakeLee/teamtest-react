@@ -1,6 +1,6 @@
 import './css/Ranking.css';
 
-function Ranking ({gameScore}) {
+function Ranking({ gameScore }) {
   const gameNames = [
     { name: "LOL", label: "리그 오브 레전드" },
     { name: "MS", label: "메이플스토리" },
@@ -12,8 +12,7 @@ function Ranking ({gameScore}) {
       <h2>🏅 랭킹</h2>
       <p className="ranking-subtitle">지난 주 1~5위</p>
       <div className="quiz-score-container">
-        
-          {gameNames.map((game) => (
+        {gameNames.map((game) => (
           <div key={game.name}>
             <h2 className="gamename">{game.label}</h2>
             <ul className="ranking-list">
@@ -27,11 +26,8 @@ function Ranking ({gameScore}) {
             </ul>
           </div>
         ))}
-      
       </div>
-       
     </div>
-     
   )
 };
 

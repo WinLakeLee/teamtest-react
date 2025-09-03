@@ -19,7 +19,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
           ? `url(${userInfo.nicknameBg})`        // 없으면 none
           : "none"
       }}>
-      <img src={`../images/rank/티어이미지/${userInfo?.grade}.jpg`} // 등급이미지 
+      <img src={`../images/rank/티어이미지/${userInfo?.grade}.jpg`} // 등급이미지
         alt={userInfo?.grade}
         style={{ width: "50px", height: "50px", marginLeft: "10px" }}
       />

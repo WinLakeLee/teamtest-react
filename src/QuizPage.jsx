@@ -71,12 +71,12 @@ function QuizPage({ userInfo }) {
         <PacmanLoader />
         :
         <div className={styles.quizContainer}>
-          <Timer limit = {limit}/>
+          <Timer limit={limit} />
           <h1>{game} 퀴즈</h1>
           <p>현재 점수 : {score}</p>
           <div key={index} className={styles.answersBox}>
             <div className={styles.questionText}>문제 : {quizzes[index].question}</div>
-            <QuizAnswer id={quizzes[index].quizId} answer={quizzes[index].answer} index={index} setIndex={setIndex} score={score} setScore={setScore} styles={styles}/>
+            <QuizAnswer id={quizzes[index].quizId} answer={quizzes[index].answer} index={index} setIndex={setIndex} score={score} setScore={setScore} styles={styles} />
           </div>
           <button onClick={() => result()}>포기하기</button>
         </div>
