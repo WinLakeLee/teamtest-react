@@ -8,13 +8,17 @@ const Timer = ({limit}) => {
       setTime(prevTime => prevTime - 1);
     }, 1000);
     setTimer;
+    return () => {
+      clearInterval(setTimer);
+    }
   }, [])
   
 
   return (
     <>
-      <div className="container" style={styles}>
-        <p className="timer">남은시간: {time}초</p>
+      <div className={styles.container}>
+        <p className={styles.timer}>&nbsp;</p>
+        <span className={styles.text}>남은시간: {time}초</span>
       </div>
     </>
   )
