@@ -1,66 +1,80 @@
+body{
+   background: linear-gradient(180deg, #f9f9f9, #c2c8d6);
+}
 .honor-container {
   max-width: 600px;
-  max-width: 900px;
   margin: 50px auto;
   padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 20px;
+  border: 3px solid #a0a0a0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   font-family: 'Arial', sans-serif;
 }
-
-.honor-container h2 {
+.honor-header {
+  background: linear-gradient(145deg, #fcfcfc9f, #000000);
+  color: white;
+  padding: 15px;
+  border-radius: 12px 12px 0 0;
+}
+.honor-header h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #2d3436;
+  color: #161b1d;
 }
 .honor-subtitle {
   text-align: center;
-  color: #636e72;
+  color: white;
   margin-bottom: 30px;
   font-size: 14px;
+  border-bottom: 1px solid #ddd;
 }
 .honor-table {
   width: 100%;
-  border-collapse: collapse;
-}
-.quiz-score-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  margin-top: 5rem;
-  gap: 3rem;
-}
-.honor-list {
-  list-style: none;
-  padding: 0;
-}
-
-.honor-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: #fff;
-  margin-bottom: 12px;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-
-  transition: transform 0.2s ease-in-out;
+  border-collapse: collapse
 }
 
 .honor-table th,
 .honor-table td {
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.honor-table tr:hover {
-  background: #f1f2f6;
+  border-bottom: 1px solid black;
 }
 
 .honor-table th {
   background: #0984e3;
   color: white;
+}
+.honor-table > tbody tr:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(75, 51, 51, 0.548), 0 0 12px rgba(160,160,160,0.6);
+  transition: transform 0.3s ease-in-out;
+}
+.honor-TopRank img {
+  width: 30px;
+  height: 40px;
+  margin-bottom: 9px;
+}
+
+.honor-card {
+  height: 73.8px;
+}
+.honor-rank {
+  font-weight: bold;
+  color: #e17055;
+}
+.honor-score {
+  color: black;
+}
+.honor-card:nth-child(1) {
+  background: linear-gradient(145deg, #ffd90018, #ffa600bb); /* 금빛 */
+ 
+}
+.honor-card:nth-child(2) {
+  background: linear-gradient(145deg, #c0c0c018, #7d7d7dbb); /* 은빛 */
+ 
+}
+.honor-card:nth-child(3) {
+  background: linear-gradient(145deg, #f8953118, #8b4513bb); /* 동빛 */
+
 }

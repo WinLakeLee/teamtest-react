@@ -3,16 +3,16 @@ import { data, Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import './css/Mypage.css'
 
-const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
+const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames}) => {
 
   const navigate = useNavigate();
-  console.log(auth)
-
-    const logout = () => {
+  const logout = () => {
     sessionStorage.removeItem('jwt');
     setAuth(false);
     setUserInfo('');
   }
+  if(!userInfo)
+    return <div>로딩창</div>
 
   return (
     <div className="mypage-container" 
@@ -30,10 +30,18 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth }) => {
       <label>닉네임 : {userInfo.nickname}</label> <br />
       <label>이메일 : {userInfo.email}</label> <br />
       <label>포인트 : {userInfo.point}</label> <br />
-      <label>롤점수 : {userInfo.score}</label> <br />
-      <label>배그점수 : {userInfo.score}</label> <br />
-      <label>스타점수 : {userInfo.score}</label> <br />
-      <label>메이플점수 : {userInfo.score}</label> <br />
+      {gameNames.map((game) => {
+        const score = gameScore[game.name]?.find(
+          (user) => user.nickname === userInfo.nickname // user = 현재 보고 있는 유저, userinfo = 로그인한 유저
+        );
+         return (
+          <div key={game.name}>
+            <label>
+              {game.label} 점수 : {score ? score.score : 0}
+            </label>
+          </div>
+         );
+        })}
 
       <button onClick={() => navigate("/modify")}>
         수정
