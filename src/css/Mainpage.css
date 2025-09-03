@@ -4,11 +4,38 @@
   box-sizing: border-box;
 }
 .MainPage.container{
+  display: flex;
+  justify-content: center;
   margin-top: 6.25rem;
   gap: 30px; 
 }
+.rankpost {
+  display: flex;
+  justify-content: center;
+}
+.rankpost_newgame {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  border-bottom: 1px solid black;
+}
+.ranking_container {
+  display: flex;
+  justify-content: center;
+}
+.ranking_table {
+  width: 50%;
+  padding-top: 10px;
+  margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+}
 .imp {
-  width: 80%;
+  width: 60%;
   height: 18.75rem;
   padding-top: 10px;
   margin-bottom: 1rem;
