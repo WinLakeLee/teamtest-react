@@ -71,10 +71,12 @@ function App() {
         <Route path="/login" element={<Login setAuth={setAuth} />} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo}/>} />
+
         <Route path="/honor" element={<Honor honor={honor}/>} />
         <Route path="/ranking" element={<Ranking gameScore={gameScore} gameNames={gameNames} />} />
         <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} gameScore={gameScore} gameNames={gameNames}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo}/>} />
+         develop
       </Routes>
 
     </>
