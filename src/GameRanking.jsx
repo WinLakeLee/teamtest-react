@@ -21,7 +21,12 @@ const Gameranking = () => {
 
   return (
     <>
-    <div className="rankin_container">
+    <div className="rankpost">
+      <div className="rankpost_newgame">
+        <h2>신규게임</h2>
+      </div>
+    </div>
+    <div className="ranking_container">
       <table className="ranking_table">
         <thead>
           <tr>
