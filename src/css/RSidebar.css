@@ -1,26 +1,27 @@
 .layout {
   display: flex;
-  height: 100vh; /* 화면 전체 높이 */
-  position: fixed;
+  height: 100vh;
 }
-.sidebar {
+.Rsidebar {
+  position: fixed;
+  right: 0;
   width: 220px;
   background-color: #ffffff;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 20px;
 }
-.title {
+.Rtitle {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
-.menu {
+.Rmenu {
   list-style: none;
   padding: 0;
 }
-.menu li {
+.Rmenu li {
   margin: 15px 0;
   cursor: pointer;
 }
-.menu li:hover {
+.Rmenu li:hover {
   color: #1abc9c;
 }
