@@ -76,16 +76,9 @@ const Market = ({auth, setAuth, userInfo, setUserInfo}) => {
   const handleUseItem = async (useItem) => {
     try {
       const response = await axiosInstance.post(`/market/use/${userInfo.id}/${useItem.item.itemId}`);
-    
-      const updatedUser = response.data;
 
-      setUserInfo(prev => ({
-        ...prev,
-        grade: updatedUser.grade,           // GRADE 적용
-        nicknameBg: updatedUser.nicknameBg  // IMAGE 적용
-      }));
-
-     alert(`${useItem.item.itemName} 사용완료`);
+     alert(`${response.data.itemName} 사용완료`);
+     window.location.reload();   // 사용완료 시 새로고침 실행
     } catch (err) {
       alert(err.response?.data || "사용 실패");
     }
@@ -144,32 +137,33 @@ const Market = ({auth, setAuth, userInfo, setUserInfo}) => {
       </table>
     </div>          
 
-
-    <h3 className="market-title">내 아이템</h3>
-    <table className="item-grid">
-        <thead>
-          <tr>
-            <th>아이템명</th>
-            <th>가격</th>
-            <th>환불</th>
-            <th>사용</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.isArray(myItem) && myItem.map((myItem)=>(
-            <tr key={myItem.id} className="item-card">
-              <td className="item-name">{myItem.item.itemName}</td>
-              <td className="item-price">{myItem.item.itemPrice}</td>
-              <td className="buy-button">{myItem.item.itemCategory === "GRADE" ? (
-                <button disabled style={{backgroundColor: "rgba(230, 35, 35, 1)"}}>환불불가</button>
-              ) : ( 
-              <button onClick={() => handleRefund(myItem)}>환불</button>
-              )}</td>
-              <td className="buy-button"><button onClick={() => handleUseItem(myItem)}>사용하기</button></td>
-            </tr>  
-          ))}
-      </tbody>   
-    </table>
+    <div className="market-container">
+      <h3 className="market-title">내 아이템</h3>
+      <table className="item-grid">
+          <thead>
+            <tr>
+              <th>아이템명</th>
+              <th>가격</th>
+              <th>환불</th>
+              <th>사용</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.isArray(myItem) && myItem.map((myItem)=>(
+              <tr key={myItem.id} className="item-card">
+                <td className="item-name">{myItem.item.itemName}</td>
+                <td className="item-price">{myItem.item.itemPrice}</td>
+                <td className="buy-button">{myItem.item.itemCategory === "GRADE" ? (  // 등급 아이템일 경우 환불버튼 disabled
+                  <button disabled style={{backgroundColor: "rgba(230, 35, 35, 1)"}}>환불불가</button>
+                ) : ( 
+                <button onClick={() => handleRefund(myItem)}>환불</button>
+                )}</td>
+                <td className="buy-button"><button onClick={() => handleUseItem(myItem)}>사용하기</button></td>
+              </tr>  
+            ))}
+        </tbody>   
+      </table>
+    </div>
     </>
   );
 };
