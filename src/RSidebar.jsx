@@ -3,7 +3,7 @@ import "./css/RSidebar.css"
 import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const RSidebar = () => {
+const RSidebar = ({ }) => {
   const [Rshow, setRShow] = useState();
 
   useEffect(() => {
