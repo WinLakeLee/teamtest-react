@@ -24,6 +24,7 @@ const RSidebar = () => {
               <li>🍁메이플스토리 :</li>
               <li>🛰️스타크래프트 :</li>
               <li>🍗배틀그라운드 :</li>
+              <li>⛴로스트아크 :</li>
             </ul>
             <h2 className="Rtitle">나의 순위🏆</h2>
             <ul className="Rmenu">

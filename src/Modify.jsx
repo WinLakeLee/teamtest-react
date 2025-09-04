@@ -15,7 +15,7 @@ const Modify = ({ userInfo, setUserInfo, auth, setAuth }) => {
     setAuth(false);
     setUserInfo('');
   }
-
+  
   const onSubmitHandler = () => {
     if (userInfo.nickname.length < 3) {
       alert("닉네임은 2자 이상이어야 합니다.");
@@ -26,16 +26,14 @@ const Modify = ({ userInfo, setUserInfo, auth, setAuth }) => {
       return;
     }
     axiosInstance
-      .put("/update", {
-        nickname: userInfo.nickname,
-        password: userInfo.password
-      })
-      .then((response) => {
-        console.log(response.data);
-        alert("수정이 완료되었습니다.");
-        alert("다시 로그인해 주세요")
-        logout();
-        navigate("/");
+    .put("/update", {
+      nickname: userInfo.nickname,
+      password: userInfo.password
+    })
+    .then((response) => {
+      alert(`수정이 완료되었습니다.\n다시 로그인 해 주세요`)
+      logout();
+      navigate("/"); 
       })
       .catch((error) => {
         console.error(error);
