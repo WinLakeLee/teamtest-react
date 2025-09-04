@@ -25,6 +25,7 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               <NavDropdown.Item as={Link} to="/quiz/ms">메이플</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/sc">스타크래프트</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/quiz/bg">배틀그라운드</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/quiz/loa">로스트아크</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/quiz/etc">기타</NavDropdown.Item>
             </NavDropdown>
