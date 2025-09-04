@@ -36,13 +36,13 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               </>
             ) : (
               <>
-                <div style={{ color: "white", marginTop: "12px", marginRight: "50px" }}>
+                <div style={{ color: "white", marginTop: "15px", marginRight: "25px" }}>
                   내 포인트: {userInfo ? userInfo.point : "불러오는 중..."}
                 </div>
-                <Button variant="outline-light" onClick={logout} style={{ height: "30px", margin: "auto" }}>
+                <Button variant="outline-light" onClick={logout} style={{ height: "30px", margin: "auto", padding:"0 12px 0 12px" }}>
                   로그아웃
                 </Button>
-                <Nav.Link as={Link} to="/mypage" style={{ marginLeft: "30px", marginTop: "10px" }}>마이페이지</Nav.Link>
+                <Nav.Link as={Link} to="/mypage" style={{ marginLeft: "30px", marginTop: "8px" }}>마이페이지</Nav.Link>
                 {/* 닉네임 + 등급이미지 */}
                 <div style={{ display: "flex", alignItems: "center", marginLeft: "10px" }}>
                   {userInfo?.grade && (

@@ -31,4 +31,5 @@ function Ranking({ gameScore, gameNames }) {
     </div>
   )
 };
+
 export default Ranking;
