@@ -7,14 +7,16 @@
     width: 90%;
     max-width: 600px;
     text-align: center;
-    margin: 50px auto; /* 중앙 정렬을 위해 body 스타일을 컨테이너에 옮김 */
+    margin: 50px auto;
+    /* 중앙 정렬을 위해 body 스타일을 컨테이너에 옮김 */
 }
 
 .questionText {
     font-size: 1.5rem;
     color: #333;
     font-weight: bold;
-    margin-bottom: 25px; /* 질문과 답변 사이 간격 */
+    margin-bottom: 25px;
+    /* 질문과 답변 사이 간격 */
 }
 
 .answersBox {
@@ -23,10 +25,14 @@
 }
 
 .answerItem {
-    display: flex; /* 내부 요소들을 가로로 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    margin-bottom: 15px; /* 항목 간 간격 */
-    gap: 10px; /* 버튼과 텍스트 사이 간격 */
+    display: flex;
+    /* 내부 요소들을 가로로 정렬 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    margin-bottom: 15px;
+    /* 항목 간 간격 */
+    gap: 10px;
+    /* 버튼과 텍스트 사이 간격 */
 }
 
 .answerButton {

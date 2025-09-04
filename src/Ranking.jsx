@@ -1,7 +1,7 @@
 import './css/Ranking.css';
 
-function Ranking ({gameScore, gameNames}) {
-  
+function Ranking({ gameScore, gameNames }) {
+
   return (
     <div className="ranking-container">
       <div className='ranking-header'>

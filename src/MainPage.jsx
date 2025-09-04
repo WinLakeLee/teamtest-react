@@ -1,6 +1,6 @@
 import Slider from "./Slider";
 import MainContent from "./MainContent";
-import Gameranking from "./GameRanking";
+import GameRanking from "./GameRanking";
 import Sidebar from "./Sidebar";
 import RSidebar from "./RSidebar";
 
@@ -11,7 +11,7 @@ const MainPage = () => {
       <RSidebar />
       <Slider />
       <MainContent />
-      <Gameranking />
+      <GameRanking />
     </>
   )
 }

@@ -3,6 +3,7 @@
   height: 26px;
   position: relative;
 }
+
 .timer {
   width: 100%;
   background-color: greenyellow;
@@ -15,6 +16,7 @@
   from {
     width: 100%;
   }
+
   to {
     width: 0%;
   }

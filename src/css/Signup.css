@@ -6,10 +6,10 @@
 
   width: 380px;
   padding: 35px;
-  margin: 80px auto; 
+  margin: 80px auto;
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 
   font-family: 'Arial', sans-serif;
 }
@@ -33,7 +33,7 @@
 
 .signup-container input:focus {
   border: 1px solid #0984e3;
-  box-shadow: 0 0 5px rgba(9,132,227,0.3);
+  box-shadow: 0 0 5px rgba(9, 132, 227, 0.3);
 }
 
 .signup-container button {

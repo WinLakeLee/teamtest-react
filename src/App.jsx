@@ -17,7 +17,7 @@ const QuizPage = lazy(() => import('./QuizPage'));
 function App() {
   const [auth, setAuth] = useState(false);
   const [userInfo, setUserInfo] = useState();
-  const [gameScore, setGameScore] = useState({ LOL: [], BG: [], SC: [], MS: [], LOA: []});
+  const [gameScore, setGameScore] = useState({ LOL: [], BG: [], SC: [], MS: [], LOA: [] });
   const [honor, setHonor] = useState([]);
   const gameNames = [
     { name: "LOL", label: "리그 오브 레전드" },

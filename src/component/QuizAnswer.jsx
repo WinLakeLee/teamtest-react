@@ -1,6 +1,7 @@
 import axiosInstance from "../../axiosInstance";
 
 const QuizAnswer = ({ id, answer, index, setIndex, score, setScore, styles }) => {
+  
   return (
     <>
       {answer.map((currentAnswer, i) => (
