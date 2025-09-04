@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-
+import "./css/GameRanking.css"
 const Gameranking = () => {
 
   const BASE_URL = "https://api.kcisa.kr/openapi/API_CIA_093/request"

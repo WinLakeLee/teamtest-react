@@ -67,18 +67,15 @@ function App() {
     <>
       <Header auth={auth} setAuth={setAuth} userInfo={userInfo} setUserInfo={setUserInfo} />
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage gameScore={gameScore} gameNames={gameNames} userInfo={userInfo} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
         <Route path="/market" element={<Market auth={auth} setAuth={setAuth} userInfo={userInfo} />} />
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo} />} />
         <Route path="/honor" element={<Honor honor={honor} />} />
         <Route path="/ranking" element={<Ranking gameScore={gameScore} gameNames={gameNames} />} />
-        <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} gameScore={gameScore} gameNames={gameNames} />} />
-        <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} />} />
         <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} setAuth={setAuth} gameScore={gameScore} gameNames={gameNames}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} setAuth={setAuth}/>} />
-        develop
       </Routes>
     </>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./css/RSidebar.css"
-const RSidebar = () => {
+const RSidebar = ({gameScore, gameNames, userInfo}) => {
   const [rShow, setRShow] = useState();
   useEffect(() => {
     const handleScroll = () => {
@@ -15,23 +15,23 @@ const RSidebar = () => {
   }, []);
   return (
     <>
-      <div className="Rlayout">
+      <div className="R-layout">
         {rShow && (
-          <div className="Rsidebar">
-            <h2 className="Rtitle">나의 점수🏆</h2>
-            <ul className="Rmenu">
-              <li>⚔️리그오브레전드 :</li>
-              <li>🍁메이플스토리 :</li>
-              <li>🛰️스타크래프트 :</li>
-              <li>🍗배틀그라운드 :</li>
-              <li>⛴로스트아크 :</li>
-            </ul>
-            <h2 className="Rtitle">나의 순위🏆</h2>
-            <ul className="Rmenu">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+          <div className="R-sidebar">
+            <h2 className="R-title">나의 점수🏆</h2>
+            <ul className="R-menu">
+              {gameNames.map((game) => {
+                const score = gameScore[game.name]?.find(
+                  (user) => user.nickname === userInfo.nickname // user = 현재 보고 있는 유저, userinfo = 로그인한 유저
+              );
+                return (
+                  <div key={game.name}>
+                    <li>
+                      {game.label} 점수 : {score ? score.score : 0}
+                    </li>
+                  </div>
+                );
+              })}
             </ul>
           </div>
         )}

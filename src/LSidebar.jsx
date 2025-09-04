@@ -1,5 +1,5 @@
 import { Nav } from "react-bootstrap";
-import "./css/Sidebar.css"
+import "./css/LSidebar.css"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -20,11 +20,11 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="layout">
+      <div className="L-layout">
         {show && (
-          <div className="sidebar">
-            <h2 className="title">🎮</h2>
-            <ul className="menu">
+          <div className="L-sidebar">
+            <h2 className="L-title">🎮 퀴즈 풀기</h2>
+            <ul className="L-menu">
               <Nav>
                 <Link to='/quiz/lol'><li>⚔️리그오브레전드</li></Link>
                 <Link to='/quiz/ms'><li>🍁메이플스토리</li></Link>

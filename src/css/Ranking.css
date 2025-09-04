@@ -35,11 +35,15 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border-radius: 5px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .ranking-list {
   list-style: none;
   padding: 0;
+  width: 90%;
+  justify-self: center;
 }
 
 .ranking-card {
@@ -86,12 +90,6 @@
   /* 동빛 */
   background: linear-gradient(145deg, #f8953181, #8b4513);
   color: #fff;
-}
-
-.ranking-username {
-  font-size: 16px;
-  font-weight: bold;
-  color: #2d3436;
 }
 
 .ranking-score {
