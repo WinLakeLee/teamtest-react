@@ -1,13 +1,16 @@
 .layout {
   display: flex;
-  height: 100vh; /* 화면 전체 높이 */
+  height: 100vh;
+  /* 화면 전체 높이 */
   position: fixed;
 }
+
 .sidebar {
   width: 220px;
   color: white;
   padding: 20px;
 }
+
 .title {
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -17,11 +20,13 @@
   text-decoration: none;
   padding: 0;
 }
+
 .menu li {
   text-decoration: none;
   margin: 15px 0;
   cursor: pointer;
 }
+
 .menu li:hover {
   color: #1abc9c;
 }

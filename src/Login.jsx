@@ -29,7 +29,6 @@ const Login = ({ setAuth }) => {
         axiosInstance.post('/login', member)
           .then(response => {
             const jwt = response.headers.authorization;
-
             if (jwt != null) {
               sessionStorage.setItem('jwt', jwt);
               setAuth(true)

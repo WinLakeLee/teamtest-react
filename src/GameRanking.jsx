@@ -19,33 +19,33 @@ const Gameranking = () => {
 
   return (
     <>
-    <div className="rankpost">
-      <div className="rankpost_newgame">
-        <h2>신규게임</h2>
+      <div className="rankpost">
+        <div className="rankpost_newgame">
+          <h2>신규게임</h2>
+        </div>
       </div>
-    </div>
-    <div className="ranking_container">
-      <table className="ranking_table">
-        <thead>
-          <tr>
-            <td>#</td>
-            <td>게임</td>
-            <td>분류</td>
-            <td>출시일</td>
-          </tr>
-        </thead>
-        <tbody>
-          {data && data.map((game, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{game.TITLE}</td>
-              <td>{game.GENRE}</td>
-              <td>{game.ISSUED_DATE}</td>
+      <div className="ranking_container">
+        <table className="ranking_table">
+          <thead>
+            <tr>
+              <td>#</td>
+              <td>게임</td>
+              <td>분류</td>
+              <td>출시일</td>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {data && data.map((game, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{game.TITLE}</td>
+                <td>{game.GENRE}</td>
+                <td>{game.ISSUED_DATE}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }

@@ -44,7 +44,7 @@ const Modify = ({ userInfo, setUserInfo, auth, setAuth }) => {
   return (
     <div className="login-container">
       <h2>{userInfo.username}님</h2>
-      <br/>
+      <br />
       <label>
         <input
           type="text"
