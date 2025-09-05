@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import './css/Login.css';
 import Google from "./Google";
+import { PacmanLoader } from "react-spinners";
+import Kakao from "./Kakao";
 
 
 const Login = ({ setAuth }) => {
+  const [loading, setLoading] = useState(true);
   const [member, setMember] = useState({
     "username": '',
     "password": ''
@@ -19,30 +22,51 @@ const Login = ({ setAuth }) => {
       [e.target.name]: e.target.value
     })
   }
+  useEffect(() => {
+    setLoading(false);
+  })
 
   return (
-    <div className="login-container">
-      <h2>로그인</h2>
-      <hr />
-      <label>아이디 <input type="text" name="username" placeholder="아이디를 입력하세요" onChange={onChangeHandler} /></label> <br />
-      <label>비밀번호 <input type="password" name="password" placeholder="비밀번호를 입력하세요" onChange={onChangeHandler} /></label> <br />
+    loading ?
+      <PacmanLoader />
+      :
+      <div className="login-container">
+        <h2>로그인</h2>
+        <hr />
+        <label>아이디 <input type="text" name="username" placeholder="아이디를 입력하세요" onChange={onChangeHandler} /></label> <br />
+        <label>비밀번호 <input type="password" name="password" placeholder="비밀번호를 입력하세요" onChange={onChangeHandler} /></label> <br />
 
-      <button onClick={() => {
-        axiosInstance.post('/login', member)
-          .then(response => {
-            const jwt = response.headers.authorization;
+        <button onClick={() => {
+          axiosInstance.post('/login', member)
+            .then(response => {
+              const jwt = response.headers.authorization;
 
-            if (jwt != null) {
-              sessionStorage.setItem('jwt', jwt);
-              setAuth(true)
-              navigate('/')
-            }
-          }).catch(error => {
-            console.log(error);
-          })
-      }}>로그인</button>
-        <Google setAuth={setAuth}/>
-    </div>
+    //         if (jwt != null) {
+    //           sessionStorage.setItem('jwt', jwt);
+    //           setAuth(true)
+    //           navigate('/')
+    //         }
+    //       }).catch(error => {
+    //         console.log(error);
+    //       })
+    //   }}>로그인</button>
+    //     <Google setAuth={setAuth}/>
+    // </div>
+              if (jwt != null) {
+                sessionStorage.setItem('jwt', jwt);
+                setAuth(true)
+                navigate('/')
+              }
+            }).catch(error => {
+              console.log(error);
+            })
+        }}>로그인</button>
+
+        <hr />
+
+        {/* 카카오 로그인 */}
+        <Kakao setAuth={setAuth}><img src="images\kakao_login.png"></img></Kakao>
+      </div>
   )
 }
 

@@ -1,18 +1,17 @@
 import Slider from "./Slider";
 import MainContent from "./MainContent";
-import "./css/Mainpage.css"
-import Gameranking from "./GameRanking";
-import Sidebar from "./Sidebar";
+import GameRanking from "./GameRanking";
+import LSidebar from "./LSidebar";
 import RSidebar from "./RSidebar";
 
-const MainPage = () => {
+const MainPage = ({gameScore, gameNames, userInfo}) => {
   return (
     <>
-      <Sidebar/>
-      <RSidebar/>
+      <LSidebar />
+      <RSidebar  gameScore={gameScore} gameNames={gameNames} userInfo={userInfo}/>
       <Slider />
       <MainContent />
-      <Gameranking />
+      <GameRanking />
     </>
   )
 }

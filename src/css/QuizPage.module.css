@@ -1,0 +1,57 @@
+.quizContainer {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    margin: 50px auto;
+    /* 중앙 정렬을 위해 body 스타일을 컨테이너에 옮김 */
+}
+
+.questionText {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 25px;
+    /* 질문과 답변 사이 간격 */
+}
+
+.answersBox {
+    display: grid;
+    gap: 15px;
+}
+
+.answerItem {
+    display: flex;
+    /* 내부 요소들을 가로로 정렬 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    margin-bottom: 15px;
+    /* 항목 간 간격 */
+    gap: 10px;
+    /* 버튼과 텍스트 사이 간격 */
+}
+
+.answerButton {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    color: #333;
+    background-color: #e9ecef;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answerButton:hover {
+    background-color: #dee2e6;
+    border-color: #adb5bd;
+}
+
+.answerButton:active {
+    background-color: #ced4da;
+}

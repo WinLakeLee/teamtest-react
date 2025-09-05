@@ -1,13 +1,13 @@
-.R-layout {
+.L-layout {
   display: flex;
+  position: fixed;
 }
 
-.R-sidebar {
-  position: fixed;
-  right: 0;
-  width: 230px;
+.L-sidebar {
+  height: 330px;
+  max-width: 220px;
+  margin: 50px auto;
   padding: 20px;
-  margin: 50px 50px;
   background: white;
   border-radius: 20px;
   border: 3px solid #a0a0a0;
@@ -15,24 +15,24 @@
   font-family: 'Arial', sans-serif;
 }
 
-.R-title {
+.L-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  text-align: center;
 }
-
-.R-menu {
+.L-menu a {
   list-style: none;
+  text-decoration: none;
   padding: 0;
 }
 
-.R-menu li {
+.L-menu li {
+  text-decoration: none;
   margin: 15px 0;
   cursor: pointer;
-}
-.R-menu li:nth-child(5) {
-  margin: 15px 0 0 6px;
+  color: black;
 }
 
-.R-menu li:hover {
+.L-menu li:hover {
   color: #1abc9c;
 }
