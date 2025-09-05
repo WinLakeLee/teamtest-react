@@ -10,6 +10,7 @@ import Ranking from './Ranking';
 import Honor from './Honor';
 import Market from './Market';
 import Modify from './Modify';
+import Kakao from './Kakao';
 
 const MyPage = lazy(() => import('./MyPage'));
 const QuizPage = lazy(() => import('./QuizPage'));
@@ -74,6 +75,7 @@ function App() {
         <Route path="/quiz/:game" element={<QuizPage userInfo={userInfo} setUserInfo={setUserInfo} />} />
         <Route path="/honor" element={<Honor honor={honor} />} />
         <Route path="/ranking" element={<Ranking gameScore={gameScore} gameNames={gameNames} />} />
+        <Route path="/oauth/kakao" element={<Kakao />} />
         <Route path="/mypage" element={<MyPage userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} setAuth={setAuth} gameScore={gameScore} gameNames={gameNames}/>} />
         <Route path="/modify" element={<Modify userInfo={userInfo} auth={auth} setUserInfo={setUserInfo} setAuth={setAuth}/>} />
       </Routes>
