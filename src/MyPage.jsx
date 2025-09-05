@@ -1,15 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import "./css/MyPage.css";
+import { useEffect, useState } from "react";
 
 const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames }) => {
-
   const navigate = useNavigate();
+  const [score, setScore] = useState({});
   const logout = () => {
     sessionStorage.removeItem('jwt');
     setAuth(false);
     setUserInfo('');
   }
+
   if (!userInfo)
     return <div>로딩창</div>
 
@@ -26,7 +28,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames }) 
       />
       <h2>{userInfo.username}님</h2>
       <label>닉네임 : {userInfo.nickname}</label>
-      <label>이메일 : {userInfo.email}</label> 
+      <label>이메일 : {userInfo.email}</label>
       <label>포인트 : {userInfo.point}</label>
       {gameNames.map((game) => {
         const score = gameScore[game.name]?.find(
@@ -55,7 +57,7 @@ const MyPage = ({ userInfo, setUserInfo, auth, setAuth, gameScore, gameNames }) 
               alert("탈퇴가 완료되었습니다.")
               logout();
               navigate('/');
-            }) .catch(error => {
+            }).catch(error => {
               console.log(error);
             })
         }}

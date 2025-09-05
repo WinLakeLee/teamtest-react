@@ -17,7 +17,7 @@ function QuizPage({ userInfo }) {
   const [submitting, setSubmitting] = useState(false);
   const scoreRef = useRef(score);
   const navigate = useNavigate();
-  const limit = 1000000;
+  const limit = 90000;
 
   useEffect(() => {
     scoreRef.current = score;

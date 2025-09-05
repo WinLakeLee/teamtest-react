@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header({ auth, setAuth, userInfo, setUserInfo }) {
   const logout = () => {
     sessionStorage.removeItem('jwt');
     setAuth(false);
     setUserInfo('');
+    navigate("/")
   }
+
+  const navigate = useNavigate()
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Container>

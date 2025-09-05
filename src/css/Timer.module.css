@@ -10,6 +10,7 @@
   overflow: visible;
   animation-name: timer;
   animation-duration: 90s;
+  animation-timing-function: linear;
 }
 
 @keyframes timer {
