@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Header({ auth, setAuth, userInfo, setUserInfo }) {
-
   const logout = () => {
     sessionStorage.removeItem('jwt');
     setAuth(false);
     setUserInfo('');
   }
-
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Container>
@@ -39,32 +37,31 @@ function Header({ auth, setAuth, userInfo, setUserInfo }) {
               </>
             ) : (
               <>
-              <div style={{ color: "white", marginTop: "12px", marginRight: "50px" }}>
-                내 포인트: {userInfo ? userInfo.point : "불러오는 중..."}
+                <div style={{ color: "white", marginTop: "15px", marginRight: "25px" }}>
+                  내 포인트: {userInfo ? userInfo.point : "불러오는 중..."}
                 </div>
-                <Button variant="outline-light" size="sm" onClick={logout}>
+                <Button variant="outline-light" onClick={logout} style={{ height: "30px", margin: "auto", padding:"0 12px 0 12px" }}>
                   로그아웃
                 </Button>
-                <Nav.Link as={Link} to="/mypage" style={{marginLeft: "30px", marginTop: "10px"}}>마이페이지</Nav.Link>
-                
+                <Nav.Link as={Link} to="/mypage" style={{ marginLeft: "30px", marginTop: "8px" }}>마이페이지</Nav.Link>
                 {/* 닉네임 + 등급이미지 */}
                 <div style={{ display: "flex", alignItems: "center", marginLeft: "10px" }}>
                   {userInfo?.grade && (
-                  <img 
-                    src={`../images/rank/티어이미지/${userInfo.grade}.jpg`} 
-                    alt={userInfo.grade} 
-                    style={{ width: "30px", height: "30px", marginLeft: "10px" }} 
-                  />
-                )}
-                <div style={{ 
-                    color: "white", 
+                    <img
+                      src={`../images/rank/티어이미지/${userInfo.grade}.jpg`}
+                      alt={userInfo.grade}
+                      style={{ width: "30px", height: "30px", marginLeft: "10px" }}
+                    />
+                  )}
+                  <div style={{
+                    color: "white",
                     padding: "5px",
                     fontSize: "30px"
                   }}
-                >
-                  {userInfo?.nickname || "불러오는 중..."}
+                  >
+                    {userInfo?.nickname || "불러오는 중..."}
+                  </div>
                 </div>
-              </div>
               </>
             )}
           </Nav>

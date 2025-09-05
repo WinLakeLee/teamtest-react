@@ -1,0 +1,28 @@
+.container {
+  border: 1px solid #000;
+  height: 26px;
+  position: relative;
+}
+
+.timer {
+  width: 100%;
+  background-color: greenyellow;
+  overflow: visible;
+  animation-name: timer;
+  animation-duration: 90s;
+}
+
+@keyframes timer {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+.text {
+  position: absolute;
+  transform: translate(-50%, -165%);
+}
