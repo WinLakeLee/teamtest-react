@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import './css/Login.css';
+import Google from "./Google";
+
 
 const Login = ({ setAuth }) => {
   const [member, setMember] = useState({
@@ -39,6 +41,7 @@ const Login = ({ setAuth }) => {
             console.log(error);
           })
       }}>로그인</button>
+        <Google setAuth={setAuth}/>
     </div>
   )
 }
